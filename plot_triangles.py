@@ -5,6 +5,8 @@ from matplotlib.widgets import Slider
 import numpy as np
 from matplotlib.gridspec import GridSpec
 from matplotlib.patches import Arc#, Circle
+import matplotlib.image as mpimg
+from matplotlib.colors import NoNorm
 import os
 os.environ["LIBGL_ALWAYS_SOFTWARE"] = "1"  # Force software rendering
 import CoolProp.CoolProp as CP
@@ -203,11 +205,13 @@ ax0 = fig.add_subplot(gs[0, :2])
 ax1 = fig.add_subplot(gs[1, :2])
 ax2 = fig.add_subplot(gs[2, :2])
 ax3 = fig.add_subplot(gs[3, :2])
-ax4 = fig.add_subplot(gs[4:, :2])
+ax4 = fig.add_subplot(gs[4:6, :2])
+
 ax5 = fig.add_subplot(gs[:4, 3:7]) # triangle
 ax6 = fig.add_subplot(gs[:4, 7:11]) # hs
 ax7 = fig.add_subplot(gs[4:, 3:]) # camberlines
 
+ax8 = fig.add_subplot(gs[6::, :2])
 
 
 # Add sliders to modify plots
@@ -322,6 +326,12 @@ l_w2_camber = pf.draw_arrow(ax7,[P1[0]+wu2,P1[1]-cm],wu2,cm,'w2','C2',linestyle=
 ### text field
 text_ax4 = ax4.text(0.5, 0.5, pf.angle_text(u,c1,c2,w1,w2,cm,cu1,cu2,wu1,wu2,alpha1,beta1,alpha2,beta2), size='large', va="center", ha="center")
 ax4.set_axis_off()
+
+
+### QR Code
+img = mpimg.imread('QRCode.jpg')
+ax8.set_axis_off()
+ax8.imshow(img, cmap='gray', norm=NoNorm())
 
 
 def update_plot(val):
