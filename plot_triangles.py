@@ -221,7 +221,7 @@ slider_work = Slider(ax2, 'WorkCoef $\\frac{{c_{{u2}} - c_{{u1}}}}{{u}}$', -2.5,
 slider_reaction = Slider(ax3, 'Reaction', -0.1, 1.0, valinit=0.5, valstep=0.01)
 
 u=200
-c1,c2,w1,w2,cm,cu1,cu2,wu1,wu2,alpha1,beta1,alpha2,beta2, hs_dict = velocity_triangle(u,0.5,0.5,0.5,AS)    
+c1,c2,w1,w2,cm,cu1,cu2,wu1,wu2,alpha1,beta1,alpha2,beta2, hs_dict = velocity_triangle(u,0.5,-1.2,0.5,AS)    
 
 
 
